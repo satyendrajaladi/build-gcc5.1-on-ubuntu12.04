@@ -1,0 +1,36 @@
+Notes for building gcc 5.1.0 on Ubuntu 12.04  
+
+uname -a
+Linux satyendra 3.13.0-32-generic #57~precise1-Ubuntu SMP Tue Jul 15 03:51:20 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+
+
+Run the dependencies package script and download all the packages.
+gcc-5.1.0/contrib/download_prerequisites
+
+note:- sh is omitted from download_prerequisites
+
+Now compile all the packages and link them to compile required gcc.
+
+for gmp
+ ../configure --with-gmp-prefix=/opt/mygmp4.3.2 --prefix=/opt/myisl0.14
+
+for isl
+
+  cd isl-0.14/
+  ls
+  mkdir objdir;cd objdir
+ ../configure --with-gmp-include=/opt/mygmp4.3.2/include  --with-gmp-lib=/opt/mygmp4.3.2/lib --prefix=/opt/myisl0.14
+
+
+
+for mpfr 
+../configure --with-gmp-include=/opt/mygmp4.3.2/include   --with-gmp-lib=/opt/mygmp4.3.2/lib  --prefix=/opt/mympfr2.4.2
+
+
+
+for gcc5.1
+
+mkdir gccbuild;cd gccbuild
+ ../gcc-5.1.0/configure  --enable-threads=posix --disable-bootstrap --enable-languages=c,c++ --disable-stage1-checking --disable-multilib --with-gmp-include=/opt/mygmp4.3.2/include --with-gmp-lib=/opt/mygmp4.3.2/lib --with-mpfr-include=/opt/mympfr2.4.2/include --with-mpfr-lib=/opt/mympfr2.4.2/lib --with-mpc-include=/opt/mympc0.8.1/include --with-mpc-lib=/opt/mympc0.8.1/lib --with-isl-include=/opt/myisl0.14/include --with-isl-lib=/opt/myisl0.14/lib --prefix=/opt/mygcc5.1
+
+
