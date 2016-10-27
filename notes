@@ -33,4 +33,17 @@ for gcc5.1
 mkdir gccbuild;cd gccbuild
  ../gcc-5.1.0/configure  --enable-threads=posix --disable-bootstrap --enable-languages=c,c++ --disable-stage1-checking --disable-multilib --with-gmp-include=/opt/mygmp4.3.2/include --with-gmp-lib=/opt/mygmp4.3.2/lib --with-mpfr-include=/opt/mympfr2.4.2/include --with-mpfr-lib=/opt/mympfr2.4.2/lib --with-mpc-include=/opt/mympc0.8.1/include --with-mpc-lib=/opt/mympc0.8.1/lib --with-isl-include=/opt/myisl0.14/include --with-isl-lib=/opt/myisl0.14/lib --prefix=/opt/mygcc5.1
 
+for  ~/.bashrc  these two lines
+
+export LD_LIBRARY_PATH=/opt/mygmp4.3.2/lib:/opt/mympfr2.4.2/lib:/opt/mympc0.8.1/lib:/opt/myisl0.14/lib:/opt/mygcc5.1/lib64:/opt/mygcc5.1/lib:$LD_LIBRARY_PATH
+export PATH=/opt/mygcc5.1/bin:$PATH
+
+for a selected bash shell console do the source with bashrc for latest gcc support(switch from old gcc to lastest gcc)
+source ~/.bashrc
+
+
+open QtCreator 4.0.2 based on Qt5.7.0
+
+Compile programs with C++11 extensions(auto,lambdas etc)
+
 
