@@ -12,10 +12,11 @@ note:- sh is omitted from download_prerequisites
 Now compile all the packages and link them to compile required gcc.
 
 for gmp
- ../configure --with-gmp-prefix=/opt/mygmp4.3.2 --prefix=/opt/myisl0.14
+cd gmp4.3.2
+mkdir objdir;cd objdir
+ ../configure --prefix=/opt/mygmp4.3.2 
 
 for isl
-
   cd isl-0.14/
   ls
   mkdir objdir;cd objdir
